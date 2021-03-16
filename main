@@ -1,0 +1,34 @@
+package com.company;
+
+import java.sql.SQLOutput;
+
+public class Main {
+
+    public static void main(String[] args) {
+	Account acc=new Account("asd","sad","jd","orka");
+	//System.out.println(acc.authorize("asd","sad"));
+	//System.out.println(acc.toString());
+	Teacher teacher=new Teacher("log","has","kx","jd","yt");
+       // System.out.println(teacher.toString());
+		Account ac1=new Account("asd","sad","jd","orka");
+		Account ac2=new Account("asd","sad","jd","orka");
+		//System.out.println(ac1.getLogin());
+		//System.out.println(ac2.getLogin());
+		Student s1=new Student("log","pas","Adam","Wadowski","IT",2020);
+		Student s2=new Student("log","pas","Jarek","Prostokat","IT",2020);
+		Student s3=new Student("log","pas","Dawid","Kwadrat","IT",2020);
+		//System.out.println(s1.semester());
+		Subject subject=new Subject("polski","MFI",2);
+		SubjectInstance instance1= new SubjectInstance(subject,2020, teacher,3);
+		instance1.enroll(s2);
+		instance1.enroll(s1);
+		//System.out.println(instance1.getStudents());
+		Enroller e1=new AlphabeticEnroller();
+		e1.setSubjectInstance(instance1);
+		e1.addStudent(s1);
+		e1.addStudent(s2);
+		e1.addStudent(s3);
+		e1.process();
+		System.out.println(instance1.getStudents());
+    }
+}
